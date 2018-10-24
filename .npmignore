@@ -4,7 +4,6 @@
 
 # tests
 lib/**/*.spec.*
-lib.es2015/**/*.spec.*
 coverage/
 
 # misc
@@ -22,8 +21,6 @@ src/
 gulpfile.js
 karma.conf.js
 tsconfig.json
-tsconfig.es2015.json
 tslint.json
-webpack.config.js
 .jest
 coverage
