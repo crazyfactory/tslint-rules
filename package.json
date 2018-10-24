@@ -23,7 +23,7 @@
     "del-cli": "^1.0.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
-    "semantic-release": "^11.0.2",
+    "semantic-release": "^15.9.17",
     "ts-jest": "^23.10.4",
     "tslint-microsoft-contrib": "^5.2.1",
     "validate-commit-msg": "^2.14.0"
@@ -36,7 +36,7 @@
     "clean": "del-cli ./lib ./lib.es2015 ./coverage",
     "lint": "tslint -t stylish --project tsconfig.json './src/**/*.ts'",
     "lint:fix": "npm run lint -s -- --fix",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "jest": {
     "transform": {
