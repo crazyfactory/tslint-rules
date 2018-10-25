@@ -1,5 +1,5 @@
 {
-  "name": "@crazy-factory/ts-module-boilerplate",
+  "name": "@crazy-factory/tslint-rules",
   "description": "",
   "main": "./lib/index.js",
   "typings": "./lib/index",
@@ -7,36 +7,36 @@
   "jsnext:main": "./lib.es2015/index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/crazyfactory/tslinit-rules",
+  "license": "GPL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/crazyfactory/ts-http-client.git"
+    "url": "https://github.com/crazyfactory/tslint-rules.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.3"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.7",
     "@types/node": "^10.12.0",
     "del-cli": "^1.0.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
-    "semantic-release": "^11.0.2",
+    "semantic-release": "^15.9.17",
     "ts-jest": "^23.10.4",
-    "tslint": "^5.11.0",
     "tslint-microsoft-contrib": "^5.2.1",
-    "typescript": "^3.1.3",
-    "validate-commit-msg": "^2.14.0",
-    "webpack": "^4.22.0",
-    "webpack-cli": "^3.1.2"
+    "validate-commit-msg": "^2.14.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "echo no test yet, please add some.",
     "test:no-cache": "jest --no-cache",
     "test:watch": "jest --watch",
-    "build": "npm run clean && tsc -p . && tsc -p tsconfig.es2015.json && webpack",
-    "clean": "del-cli ./lib ./lib.es2015 ./coverage ./umd/**/*.js",
+    "build": "npm run clean && tsc -p .",
+    "clean": "del-cli ./lib ./lib.es2015 ./coverage",
     "lint": "tslint -t stylish --project tsconfig.json './src/**/*.ts'",
     "lint:fix": "npm run lint -s -- --fix",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "jest": {
     "transform": {

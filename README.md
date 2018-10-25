@@ -1,19 +1,17 @@
-# ts-module-boilerplate
+# tslint-rules
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/crazyfactory/ts-module-boilerplate.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/crazyfactory/ts-module-boilerplate.svg)](https://travis-ci.org/crazyfactory/ts-module-boilerplate)
-[![GitHub issues](https://img.shields.io/github/issues/crazyfactory/ts-module-boilerplate.svg)](https://github.com/crazyfactory/ts-module-boilerplate/issues)
-[![codecov](https://codecov.io/gh/crazyfactory/ts-module-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/crazyfactory/ts-module-boilerplate)
-[![devDependencies Status](https://david-dm.org/crazyfactory/ts-module-boilerplate/dev-status.svg)](https://david-dm.org/crazyfactory/ts-module-boilerplate?type=dev)
-[![dependencies Status](https://david-dm.org/crazyfactory/ts-module-boilerplate/status.svg)](https://david-dm.org/crazyfactory/ts-module-boilerplate)
+[![Greenkeeper badge](https://badges.greenkeeper.io/crazyfactory/tslint-rules.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/crazyfactory/tslint-rules.svg)](https://travis-ci.org/crazyfactory/tslint-rules)
+[![GitHub issues](https://img.shields.io/github/issues/crazyfactory/tslint-rules.svg)](https://github.com/crazyfactory/tslint-rules/issues)
+[![codecov](https://codecov.io/gh/crazyfactory/tslint-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/crazyfactory/tslint-rules)
+[![devDependencies Status](https://david-dm.org/crazyfactory/tslint-rules/dev-status.svg)](https://david-dm.org/crazyfactory/tslint-rules?type=dev)
+[![dependencies Status](https://david-dm.org/crazyfactory/tslint-rules/status.svg)](https://david-dm.org/crazyfactory/tslint-rules)
 
-This boilerplate allows the quick creation of npm modules written in Typescript.
+Contains lint rules for Crazy Factory
 
-- Typescript 2.x
-- creates an ES5 bundle
-- creates a TypeScript declaration bundle
+- Typescript 3.x
 - packs it for npm usage
-- uses karma for testing
+- uses jest for testing
 - uses travis and semantic-release for deployment
 - uses linting, coverage and git hooks to increase code quality.
 - is configured to support wallaby
@@ -22,9 +20,6 @@ This boilerplate allows the quick creation of npm modules written in Typescript.
 
 Initially you should:
 
-- clone this repository
-- update `package.json` (name, repository and description)
-- create your own `README.md` (from the `README.tpl.md`-file)
-- uncomment `after_success` block in `.travis.yml` to activate semantic-release
-
-Afterwards you can start implementing classes and tests :)
+- npm install `@crazyfactory/tslint-rules`
+- update `tslint.json` (add rules directory)
+- enable rules in `tslint.json`
