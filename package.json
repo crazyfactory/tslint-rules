@@ -1,5 +1,6 @@
 {
   "name": "@crazy-factory/tslint-rules",
+  "private": false,
   "description": "",
   "main": "./lib/index.js",
   "typings": "./lib/index",
