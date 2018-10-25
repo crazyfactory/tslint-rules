@@ -1,6 +1,6 @@
 # tslint-rules
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/crazyfactory/tslint-rules.svg)](https://greenkeeper.io/)
+<!--[![Greenkeeper badge](https://badges.greenkeeper.io/crazyfactory/tslint-rules.svg)](https://greenkeeper.io/) -->
 [![Build Status](https://travis-ci.org/crazyfactory/tslint-rules.svg)](https://travis-ci.org/crazyfactory/tslint-rules)
 [![GitHub issues](https://img.shields.io/github/issues/crazyfactory/tslint-rules.svg)](https://github.com/crazyfactory/tslint-rules/issues)
 [![codecov](https://codecov.io/gh/crazyfactory/tslint-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/crazyfactory/tslint-rules)
