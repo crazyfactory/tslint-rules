@@ -3,7 +3,7 @@ import * as Lint from "tslint";
 import * as ts from "typescript";
 
 interface ILanguageData {
-    reference: {base: string, group: string}[];
+    reference: { base: string, group: string }[];
 }
 
 class LanguageRule extends Lint.RuleWalker {
@@ -16,7 +16,8 @@ class LanguageRule extends Lint.RuleWalker {
         super(sourceFile, option);
     }
 
-    public visitCallExpression(node: ts.CallExpression): any {
+    public visitCallExpression(node: ts.CallExpression): void {
+        super.visitCallExpression(node);
         if (!node.expression.getChildAt(0)) {
             return;
         }
@@ -30,8 +31,8 @@ class LanguageRule extends Lint.RuleWalker {
             return;
         }
         this.addFailureAtNode(node.arguments[0], "Translation string not found");
-        super.visitCallExpression(node);
     }
+
     private doesKeyExist(key: string): boolean {
         return this.languageData.reference.some((d) => d.base === key);
     }
