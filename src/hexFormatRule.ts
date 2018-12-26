@@ -3,11 +3,17 @@ import * as ts from "typescript";
 
 class HexFormatRule extends Lint.RuleWalker {
   private readonly case: "lowercase" | "uppercase" = "lowercase";
+  private allowedLengths: number[] = [4, 7];
 
   constructor(sourceFile: ts.SourceFile, options: Lint.IOptions) {
     super(sourceFile, options);
-    if (options.ruleArguments[0] && options.ruleArguments[0].case) {
-      this.case = options.ruleArguments[0].case;
+    if (options.ruleArguments[0]) {
+      if (options.ruleArguments[0].case) {
+        this.case = options.ruleArguments[0].case;
+      }
+      if (options.ruleArguments[0].allowedLengths) {
+        this.allowedLengths = options.ruleArguments[0].allowedLengths;
+      }
     }
   }
   public visitStringLiteral(node: ts.StringLiteral): void {
@@ -15,7 +21,7 @@ class HexFormatRule extends Lint.RuleWalker {
     if (!node.text.startsWith("#")) {
       return;
     }
-    if (node.text.length !== 4 && node.text.length !== 7) {
+    if (this.allowedLengths.indexOf(node.text.length) === -1) {
       this.addFailureAtNode(node, "Incorrect hex format length");
       return;
     }
