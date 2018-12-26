@@ -7,7 +7,7 @@ interface ILanguageData {
 }
 
 class LanguageRule extends Lint.RuleWalker {
-    private callerName: string = "Translator";
+    private callerNames: string[] = ["Translator"];
 
     constructor(
         sourceFile: ts.SourceFile,
@@ -16,8 +16,8 @@ class LanguageRule extends Lint.RuleWalker {
         private readonly languageData: ILanguageData
     ) {
         super(sourceFile, options);
-        if (options.ruleArguments[0] && options.ruleArguments[0].callerName) {
-            this.callerName = options.ruleArguments[0].callerName;
+        if (options.ruleArguments[0] && options.ruleArguments[0].callerNames) {
+            this.callerNames = options.ruleArguments[0].callerNames;
         }
     }
 
@@ -28,7 +28,7 @@ class LanguageRule extends Lint.RuleWalker {
         }
         const leftSideType: ts.Type = this.program.getTypeChecker().getTypeAtLocation(node.expression.getChildAt(0));
         const leftSideString = this.program.getTypeChecker().typeToString(leftSideType);
-        if (leftSideString !== this.callerName) {
+        if (this.callerNames.indexOf(leftSideString) === -1) {
             return;
         }
         const key: ts.StringLiteral = node.arguments[0] as ts.StringLiteral;
