@@ -7,13 +7,18 @@ interface ILanguageData {
 }
 
 class LanguageRule extends Lint.RuleWalker {
+    private callerName: string = "Translator";
+
     constructor(
         sourceFile: ts.SourceFile,
-        option: Lint.IOptions,
+        options: Lint.IOptions,
         private program: ts.Program,
         private readonly languageData: ILanguageData
     ) {
-        super(sourceFile, option);
+        super(sourceFile, options);
+        if (options.ruleArguments[0] && options.ruleArguments[0].callerName) {
+            this.callerName = options.ruleArguments[0].callerName;
+        }
     }
 
     public visitCallExpression(node: ts.CallExpression): void {
@@ -23,7 +28,7 @@ class LanguageRule extends Lint.RuleWalker {
         }
         const leftSideType: ts.Type = this.program.getTypeChecker().getTypeAtLocation(node.expression.getChildAt(0));
         const leftSideString = this.program.getTypeChecker().typeToString(leftSideType);
-        if (leftSideString !== "Translator") {
+        if (leftSideString !== this.callerName) {
             return;
         }
         const key: ts.StringLiteral = node.arguments[0] as ts.StringLiteral;
