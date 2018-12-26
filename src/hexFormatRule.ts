@@ -18,24 +18,26 @@ class HexFormatRule extends Lint.RuleWalker {
   }
   public visitStringLiteral(node: ts.StringLiteral): void {
     super.visitStringLiteral(node);
-    if (!node.text.startsWith("#")) {
+    const matches = node.text.match(/#\S*/g);
+    if (!matches) {
       return;
     }
-    if (this.allowedLengths.indexOf(node.text.length) === -1) {
-      this.addFailureAtNode(node, "Incorrect hex format length");
-      return;
-    }
-    if (this.case === "uppercase") {
-      if (node.text.toUpperCase() !== node.text) {
-        this.addFailureAtNode(node, "Hex format should be uppercase");
+    for (const match of matches) {
+      if (this.allowedLengths.indexOf(match.length) === -1) {
+        this.addFailureAtNode(node, "Incorrect hex format length");
+        return;
       }
-      return;
-    }
-    if (this.case === "lowercase") {
-      if (node.text.toLowerCase() !== node.text) {
-        this.addFailureAtNode(node, "Hex format should be lowercase");
+      if (this.case === "uppercase") {
+        if (match.toUpperCase() !== match) {
+          this.addFailureAtNode(node, "Hex format should be uppercase");
+        }
+        return;
+      } else {
+        if (match.toLowerCase() !== match) {
+          this.addFailureAtNode(node, "Hex format should be lowercase");
+        }
+        return;
       }
-      return;
     }
   }
 }
