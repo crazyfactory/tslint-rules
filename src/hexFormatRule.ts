@@ -16,6 +16,16 @@ class HexFormatRule extends Lint.RuleWalker {
       }
     }
   }
+  private static isHexadecimal(str: string): boolean {
+    const base10 = parseInt(str, 16);
+    if (isNaN(base10)) {
+      return false;
+    }
+    const base16 = base10.toString(16);
+    const prefix = Array.from({length: str.length - base16.length}, () => 0).join("");
+    return str.toLowerCase() === (prefix + base16).toLowerCase();
+  }
+
   public visitStringLiteral(node: ts.StringLiteral): void {
     super.visitStringLiteral(node);
     const matches = node.text.match(/#\S*/g);
@@ -23,6 +33,10 @@ class HexFormatRule extends Lint.RuleWalker {
       return;
     }
     for (const match of matches) {
+      if (!HexFormatRule.isHexadecimal(match.substring(1))) {
+        continue;
+      }
+
       if (this.allowedLengths.indexOf(match.length) === -1) {
         this.addFailureAtNode(node, "Incorrect hex format length");
         return;
@@ -30,13 +44,13 @@ class HexFormatRule extends Lint.RuleWalker {
       if (this.case === "uppercase") {
         if (match.toUpperCase() !== match) {
           this.addFailureAtNode(node, "Hex format should be uppercase");
+          return;
         }
-        return;
       } else {
         if (match.toLowerCase() !== match) {
           this.addFailureAtNode(node, "Hex format should be lowercase");
+          return;
         }
-        return;
       }
     }
   }
