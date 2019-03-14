@@ -3,6 +3,6 @@
     "../../../../lib"
   ],
   "rules": {
-    "jsx-space-before-trailing-slash": [true, "never"]
+    "jsx-space-before-closing-tag": true
   }
 }

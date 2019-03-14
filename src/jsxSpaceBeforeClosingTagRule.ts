@@ -1,7 +1,7 @@
 import * as Lint from "tslint";
 import * as ts from "typescript";
 
-class JsxSpaceBeforeTrailingSlashRule extends Lint.RuleWalker {
+class JsxSpaceBeforeClosingTagRule extends Lint.RuleWalker {
   private readonly enforceWhiteSpace: boolean = true;
   constructor(
     sourceFile: ts.SourceFile,
@@ -20,12 +20,12 @@ class JsxSpaceBeforeTrailingSlashRule extends Lint.RuleWalker {
   public visitJsxSelfClosingElement(node: ts.JsxSelfClosingElement): void {
     super.visitJsxSelfClosingElement(node);
     if (this.enforceWhiteSpace) {
-      if (!JsxSpaceBeforeTrailingSlashRule.hasWhitespaceBeforeClosing(node.getText())) {
+      if (!JsxSpaceBeforeClosingTagRule.hasWhitespaceBeforeClosing(node.getText())) {
         this.addFailureAtNode(node, "Self-closing JSX elements must have a space before the '/>' part");
         return;
       }
     } else {
-      if (!/[\r\n]/.test(node.getText()) && JsxSpaceBeforeTrailingSlashRule.hasWhitespaceBeforeClosing(node.getText())) {
+      if (!/[\r\n]/.test(node.getText()) && JsxSpaceBeforeClosingTagRule.hasWhitespaceBeforeClosing(node.getText())) {
         this.addFailureAtNode(node, "One-line self-closing JSX elements must not have a space(s) before the '/>' part");
         return;
       }
@@ -36,6 +36,6 @@ class JsxSpaceBeforeTrailingSlashRule extends Lint.RuleWalker {
 // tslint:disable-next-line:export-name max-classes-per-file
 export class Rule extends Lint.Rules.TypedRule {
   public applyWithProgram(sourceFile: ts.SourceFile, program: ts.Program): Lint.RuleFailure[] {
-    return this.applyWithWalker(new JsxSpaceBeforeTrailingSlashRule(sourceFile, this.getOptions()));
+    return this.applyWithWalker(new JsxSpaceBeforeClosingTagRule(sourceFile, this.getOptions()));
   }
 }
