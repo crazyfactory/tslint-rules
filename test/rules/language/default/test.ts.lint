@@ -1,0 +1,5 @@
+class Translator {}
+const translator = new Translator();
+const hello = translator.translate("Hello");
+                                   ~~~~~~~ [Translation string not found]
+const world = translator.translate("World");

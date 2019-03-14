@@ -1,0 +1,11 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "language": [true, {
+      "path": "test/rules/language/default/reference.json",
+      "callerNames": ["ITranslator"]
+    }]
+  }
+}
