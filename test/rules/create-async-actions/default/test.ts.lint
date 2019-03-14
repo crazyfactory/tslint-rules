@@ -1,0 +1,33 @@
+export const addToCart = createAsyncActions("CART/ADD_TO_CART")<IAddToCartPayload, null, null, null>();
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ [Number of arguments of createAsyncActions must be 4]
+
+export const addToCart = createAsyncActions(
+  "CART/ADD_TO_CART",
+  "",
+  ~~ [Second argument of createAsyncActions must be the first argument followed by _PENDING]
+  "",
+  ""
+)<IAddToCartPayload, null, null, null>();
+
+export const addToCart = createAsyncActions(
+  "CART/ADD_TO_CART",
+  "CART/ADD_TO_CART_PENDING",
+  "",
+  ~~ [Third argument of createAsyncActions must be the first argument followed by _FULFILLED]
+  ""
+)<IAddToCartPayload, null, null, null>();
+
+export const addToCart = createAsyncActions(
+  "CART/ADD_TO_CART",
+  "CART/ADD_TO_CART_PENDING",
+  "CART/ADD_TO_CART_FULFILLED",
+  ""
+  ~~ [Fourth argument of createAsyncActions must be the first argument followed by _REJECTED]
+)<IAddToCartPayload, null, null, null>();
+
+export const addToCart = createAsyncActions(
+  "CART/ADD_TO_CART",
+  "CART/ADD_TO_CART_PENDING",
+  "CART/ADD_TO_CART_FULFILLED",
+  "CART/ADD_TO_CART_REJECTED"
+)<IAddToCartPayload, null, null, null>();

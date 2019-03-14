@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "create-async-actions": true
+  }
+}
