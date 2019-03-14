@@ -1,0 +1,13 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "hex-format": [
+      true,
+      {
+        "case": "uppercase"
+      }
+    ]
+  }
+}

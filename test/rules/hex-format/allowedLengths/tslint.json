@@ -1,0 +1,13 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "hex-format": [
+      true,
+      {
+        "allowedLengths": [4, 7]
+      }
+    ]
+  }
+}

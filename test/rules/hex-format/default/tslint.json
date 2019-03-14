@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "hex-format": true
+  }
+}

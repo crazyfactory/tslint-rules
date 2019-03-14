@@ -1,0 +1,7 @@
+const hex = '#fff';
+            ~~~~~~ [Hex format should be uppercase]
+const hex = '#fffFFF';
+            ~~~~~~~~~ [Hex format should be uppercase]
+
+const hex = '#FFF';
+const hex = '#FFFFFF';

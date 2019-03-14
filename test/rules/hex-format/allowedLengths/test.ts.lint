@@ -1,0 +1,5 @@
+const hex = '#aabb';
+            ~~~~~~~ [Incorrect hex format length]
+
+const hex = '#fff';
+const hex = '#ffffff';

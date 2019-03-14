@@ -58,7 +58,7 @@ class HexFormatRule extends Lint.RuleWalker {
 
 // tslint:disable-next-line:export-name max-classes-per-file
 export class Rule extends Lint.Rules.TypedRule {
-  public applyWithProgram(sourceFile: ts.SourceFile, program: ts.Program): Lint.RuleFailure[] {
+  public applyWithProgram(sourceFile: ts.SourceFile, _: ts.Program): Lint.RuleFailure[] {
     return this.applyWithWalker(new HexFormatRule(sourceFile, this.getOptions()));
   }
 }
