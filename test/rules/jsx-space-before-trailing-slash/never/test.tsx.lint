@@ -1,0 +1,23 @@
+<div>
+    Contents
+</div>
+
+<span/>
+
+<button />
+~~~~~~~~~~ [One-line self-closing JSX elements must not have a space(s) before the '/>' part]
+
+<h2 class="colouring" contents="B"/>
+
+<button onClick="run()" />
+~~~~~~~~~~~~~~~~~~~~~~~~~~ [One-line self-closing JSX elements must not have a space(s) before the '/>' part]
+
+<img
+  src="./foo/bar.png"
+/>
+
+<div>
+  <img
+    src="./foo/bar.png"
+  />
+</div>

@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "jsx-space-before-trailing-slash": true
+  }
+}
