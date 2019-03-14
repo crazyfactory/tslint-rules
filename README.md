@@ -23,3 +23,41 @@ Initially you should:
 - npm install `@crazyfactory/tslint-rules`
 - update `tslint.json` (add rules directory)
 - enable rules in `tslint.json`
+
+## Rules
+
+- `create-async-actions`
+  - In [ts-react-boilerplate](https://github.com/crazyfactory/ts-react-boilerplate), we use `createAsyncActions` to 
+  create Redux async actions. Four actions are created from calling it - `BASE`, `BASE_PENDING`, `BASE_FULFILLED`, and
+  `BASE_REJECTED` as an example when `createAsyncActions("BASE", "BASE_PENDING", "BASE_FULFILLED", "BASE_REJECTED"` is
+  called. Still, as you see, we need to provide string literal as arugments due to typescript limitation, if we provide
+  any string variable, the type will be deduced to just `string`. This rule enforces 2nd, 3rd, and 4th argument to be
+  the concatenation of the first argument string and `_PENDING`, `_FULFILLED`, and `_REJECTED` respectively.
+- `hex-format`
+  - Requires literal string in hex format to be uppercase/lowercase and/or of specific lengths.
+  - Rule options: 
+    - `case: "uppercase" | "lowercase"`
+    - `allowedLengths: number[]`
+- `jsx-space-before-trailing-slash`
+  - Requires or bans space before `/>` part of jsx.
+  - Rule options:
+    - `["always", "never"]`
+- `language`
+  - Requires that string argument called by `Translator` object is in the `reference.json`
+  - Rule options:
+    - `path`: path to `reference.json`
+    <br/>
+    `reference.json` needs to be in the following format:
+    ```
+      {
+        "reference": [
+          {
+            "base": "Translation String Here"
+          }
+        ]
+      }
+    ```
+    - `callerNames: string[]`: Name of translator object type, default is `["Translator"]`
+- `no-dup-actions`
+  - Requires that all actions created by [createAsyncActions](https://github.com/crazyfactory/ts-react-boilerplate/blob/master/src/app/redux/modules/baseModule.ts)
+  and [createAction](https://github.com/piotrwitek/typesafe-actions#createaction) have unique name.
