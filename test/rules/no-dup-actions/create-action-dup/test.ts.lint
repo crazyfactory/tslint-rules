@@ -1,0 +1,22 @@
+export const addToCart = createAsyncActions(
+  "CART/ADD_TO_CART",
+  "CART/ADD_TO_CART_PENDING",
+  "CART/ADD_TO_CART_FULFILLED",
+  "CART/ADD_TO_CART_REJECTED"
+)<IAddToCartPayload, null, null, null>();
+
+export const setFabricDataWithUrls = createAction(
+  "FABRIC/SET_DATA_WITH_URLS",
+  (resolve) => (data: IFabricData) => resolve(data)
+);
+
+export const addImage = createAction(
+  "FABRIC/ADD_IMAGE_TO_EDITOR",
+  (resolve) => (url: string) => resolve(url)
+);
+
+export const addShape = createAction(
+  "FABRIC/ADD_IMAGE_TO_EDITOR",
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ [Duplicate redux action]
+  (resolve) => (url: string) => resolve(url)
+);
