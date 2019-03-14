@@ -46,8 +46,9 @@ Initially you should:
   - Requires that string argument called by `Translator` object is in the `reference.json`
   - Rule options:
     - `path`: path to `reference.json`
-    <br/>
+
     `reference.json` needs to be in the following format:
+
     ```
       {
         "reference": [
