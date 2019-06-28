@@ -5,6 +5,7 @@
     "lib"
   ],
   "rules": {
+    "import-react": true,
     "no-banned-terms": true,
     "no-cookies": true,
     "no-delete-expression": true,
