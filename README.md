@@ -38,6 +38,9 @@ Initially you should:
   - Rule options: 
     - `case: "uppercase" | "lowercase"`
     - `allowedLengths: number[]`
+- `interface-sort-keys`
+  - Same as [object-literal-sort-keys](https://palantir.github.io/tslint/rules/object-literal-sort-keys/) but applied to
+  interface keys
 - `jsx-space-before-trailing-slash`
   - Requires or bans space before `/>` part of jsx.
   - Rule options:
