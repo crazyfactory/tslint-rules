@@ -1,5 +1,4 @@
 import * as Lint from "tslint";
-import {Identifier} from "typescript";
 import * as ts from "typescript";
 
 class InterfaceSortKeysRule extends Lint.RuleWalker {
@@ -21,13 +20,21 @@ class InterfaceSortKeysRule extends Lint.RuleWalker {
   }
 
   private checkAlphabetical(node: ts.InterfaceDeclaration | ts.TypeLiteralNode): void {
-    const properties = node.members.map((member) => (member.name as Identifier).escapedText.toString());
+    const properties = node.members.map((member) => member.getText());
     const unsortedIndex = this.getUnsortedIndex(properties);
     if (unsortedIndex !== -1) {
-      this.addFailureAtNode(
-        node.members[unsortedIndex].name as Identifier,
-        `The key '${(node.members[unsortedIndex].name as Identifier).escapedText}' is not sorted alphabetically`
-      );
+      const member = node.members[unsortedIndex];
+      if (ts.isIndexSignatureDeclaration(member)) {
+        this.addFailureAtNode(member.parameters[0], `The key "${member.parameters[0].getChildAt(0).getText()}" is not sorted alphabetically`);
+      } else if (ts.isPropertySignature(member)) {
+        this.addFailureAtNode(member.name, `The key "${member.name.getText()}" is not sorted alphabetically`);
+      } else {
+        throw new Error(`
+          Unknown Node Type!
+          This might be a case that's not covered yet.
+          Please file an issue at https://github.com/crazyfactory/tslint-rules
+        `);
+      }
     }
   }
 
