@@ -34,8 +34,8 @@ class JsxSpaceBeforeClosingTagRule extends Lint.RuleWalker {
 }
 
 // tslint:disable-next-line:export-name max-classes-per-file
-export class Rule extends Lint.Rules.TypedRule {
-  public applyWithProgram(sourceFile: ts.SourceFile, program: ts.Program): Lint.RuleFailure[] {
+export class Rule extends Lint.Rules.AbstractRule {
+  public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithWalker(new JsxSpaceBeforeClosingTagRule(sourceFile, this.getOptions()));
   }
 }
