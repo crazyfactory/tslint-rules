@@ -25,9 +25,9 @@ class InterfaceSortKeysRule extends Lint.RuleWalker {
     if (unsortedIndex !== -1) {
       const member = node.members[unsortedIndex];
       if (ts.isIndexSignatureDeclaration(member)) {
-        this.addFailureAtNode(member.parameters[0], "This key is not sorted alphabetically");
+        this.addFailureAtNode(member.parameters[0], `The key "${member.parameters[0].getChildAt(0).getText()}" is not sorted alphabetically`);
       } else if (ts.isPropertySignature(member)) {
-        this.addFailureAtNode(member.name, "This key is not sorted alphabetically");
+        this.addFailureAtNode(member.name, `The key "${member.name.getText()}" is not sorted alphabetically`);
       } else {
         throw new Error(`
           Unknown Node Type!

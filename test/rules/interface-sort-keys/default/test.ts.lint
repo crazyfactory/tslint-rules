@@ -14,7 +14,7 @@ export interface IAlphabet {
   aaa: string;
   bbb: string;
   cccAaa: string;
-  ~~~~~~           [This key is not sorted alphabetically]
+  ~~~~~~           [The key "cccAaa" is not sorted alphabetically]
   ccc: string;
   cccc: string;
 }
@@ -24,14 +24,14 @@ export interface IAlphabet {
   bbb: string;
   ccc: string;
   cccc: string;
-  ~~~~           [This key is not sorted alphabetically]
+  ~~~~           [The key "cccc" is not sorted alphabetically]
   cccAaa: string;
 }
 
 export interface IAlphabet {
   aaa: string;
   ddd: {
-  ~~~     [This key is not sorted alphabetically]
+  ~~~     [The key "ddd" is not sorted alphabetically]
     dddAaa: string;
     dddBbb: string;
   }
@@ -43,14 +43,14 @@ export interface IAlphabet {
   bbb: string;
   ddd: {
     dddBbb: string;
-    ~~~~~~         [This key is not sorted alphabetically]
+    ~~~~~~         [The key "dddBbb" is not sorted alphabetically]
     dddAaa: string;
   }
 }
 
 export interface ArrStr {
   [key: string]: string | number; // Must accommodate all members
-   ~~~~~~~~~~~                                                     [This key is not sorted alphabetically]
+   ~~~~~~~~~~~                                                     [The key "key" is not sorted alphabetically]
 
   [index: number]: string; // Can be a subset of string indexer
 
