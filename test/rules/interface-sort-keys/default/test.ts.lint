@@ -1,0 +1,49 @@
+export interface IAlphabet {
+  aaa: string;
+  bbb: string;
+  ccc: string;
+  cccAaa: string;
+  cccc: string;
+  ddd: {
+    dddAaa: string;
+    dddBbb: string;
+  }
+}
+
+export interface IAlphabet {
+  aaa: string;
+  bbb: string;
+  cccAaa: string;
+  ~~~~~~           [The key 'cccAaa' is not sorted alphabetically]
+  ccc: string;
+  cccc: string;
+}
+
+export interface IAlphabet {
+  aaa: string;
+  bbb: string;
+  ccc: string;
+  cccc: string;
+  ~~~~           [The key 'cccc' is not sorted alphabetically]
+  cccAaa: string;
+}
+
+export interface IAlphabet {
+  aaa: string;
+  ddd: {
+  ~~~     [The key 'ddd' is not sorted alphabetically]
+    dddAaa: string;
+    dddBbb: string;
+  }
+  bbb: string;
+}
+
+export interface IAlphabet {
+  aaa: string;
+  bbb: string;
+  ddd: {
+    dddBbb: string;
+    ~~~~~~         [The key 'dddBbb' is not sorted alphabetically]
+    dddAaa: string;
+  }
+}

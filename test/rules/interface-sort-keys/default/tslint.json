@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "interface-sort-keys": true
+  }
+}
