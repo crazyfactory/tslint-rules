@@ -26,26 +26,30 @@ Initially you should:
 
 ## Rules
 
-- `create-async-actions`
+### `create-async-actions`
   - In [ts-react-boilerplate](https://github.com/crazyfactory/ts-react-boilerplate), we use `createAsyncActions` to 
   create Redux async actions. Four actions are created from calling it - `BASE`, `BASE_PENDING`, `BASE_FULFILLED`, and
   `BASE_REJECTED` as an example when `createAsyncActions("BASE", "BASE_PENDING", "BASE_FULFILLED", "BASE_REJECTED"` is
   called. Still, as you see, we need to provide string literal as arugments due to typescript limitation, if we provide
   any string variable, the type will be deduced to just `string`. This rule enforces 2nd, 3rd, and 4th argument to be
   the concatenation of the first argument string and `_PENDING`, `_FULFILLED`, and `_REJECTED` respectively.
-- `hex-format`
+### `import-react`
+  - Specify how you should import `react`. Either `import *` or `import React`.
+  - Rule options:
+    - `type: "default" | "star"`. Default is `star`
+### `hex-format`
   - Requires literal string in hex format to be uppercase/lowercase and/or of specific lengths.
   - Rule options: 
-    - `case: "uppercase" | "lowercase"`
-    - `allowedLengths: number[]`
-- `interface-sort-keys`
+    - `case: "uppercase" | "lowercase"`. Default is `lowercase`
+    - `allowedLengths: number[]`. Default is `[4, 7]`
+### `interface-sort-keys`
   - Same as [object-literal-sort-keys](https://palantir.github.io/tslint/rules/object-literal-sort-keys/) but applied to
   interface keys
-- `jsx-space-before-trailing-slash`
+### `jsx-space-before-trailing-slash`
   - Requires or bans space before `/>` part of jsx.
   - Rule options:
-    - `["always", "never"]`
-- `language`
+    - `["always", "never"]`. Default is `always`.
+### `language`
   - Requires that string argument called by `Translator` object is in the `reference.json`
   - Rule options:
     - `path`: path to `reference.json`
@@ -62,6 +66,6 @@ Initially you should:
       }
     ```
     - `callerNames: string[]`: Name of translator object type, default is `["Translator"]`
-- `no-dup-actions`
+### `no-dup-actions`
   - Requires that all actions created by [createAsyncActions](https://github.com/crazyfactory/ts-react-boilerplate/blob/master/src/app/redux/modules/baseModule.ts)
   and [createAction](https://github.com/piotrwitek/typesafe-actions#createaction) have unique name.

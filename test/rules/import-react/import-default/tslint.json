@@ -1,0 +1,13 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "import-react": [
+      true,
+      {
+        "type": "default"
+      }
+    ]
+  }
+}
