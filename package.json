@@ -2,7 +2,7 @@
   "name": "@crazyfactory/tslint-rules",
   "private": false,
   "description": "",
-  "main": "./lib/index.js",
+  "main": "tslint-rules.json",
   "config": {
     "validate-commit-msg": {
       "types": [
