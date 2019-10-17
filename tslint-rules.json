@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": "./lib",
+  "rules": {
+    "import-react": [true, {"type": "star"}],
+    "hex-format": true,
+    "interface-sort-keys": true
+  }
+}
