@@ -33,6 +33,9 @@ Initially you should:
   called. Still, as you see, we need to provide string literal as arugments due to typescript limitation, if we provide
   any string variable, the type will be deduced to just `string`. This rule enforces 2nd, 3rd, and 4th argument to be
   the concatenation of the first argument string and `_PENDING`, `_FULFILLED`, and `_REJECTED` respectively.
+### `enum-sort-keys`
+  - Same as [object-literal-sort-keys](https://palantir.github.io/tslint/rules/object-literal-sort-keys/) but applied to
+  enum keys
 ### `import-react`
   - Specify how you should import `react`. Either `import *` or `import React`.
   - Rule options:

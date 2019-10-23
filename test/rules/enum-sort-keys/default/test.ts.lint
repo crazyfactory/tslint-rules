@@ -1,0 +1,25 @@
+enum Character {
+    AAA = "aaa",
+    BBB = "bbb",
+    CCC = "ccc"
+}
+
+enum Character {
+    AAA = "aaa",
+    CCC = "ccc",
+    ~~~           [The key "CCC" is not sorted alphabetically]
+    BBB = "bbb"
+}
+
+enum Number {
+    ONE,
+    THREE,
+    TWO
+}
+
+enum Number {
+    ONE,
+    TWO,
+    ~~~   [The key "TWO" is not sorted alphabetically]
+    THREE
+}
