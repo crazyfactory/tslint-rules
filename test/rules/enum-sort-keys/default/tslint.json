@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": [
+    "../../../../lib"
+  ],
+  "rules": {
+    "enum-sort-keys": true
+  }
+}

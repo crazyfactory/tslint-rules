@@ -1,6 +1,7 @@
 {
   "rulesDirectory": "./lib",
   "rules": {
+    "enum-sort-keys": true,
     "import-react": [true, {"type": "star"}],
     "hex-format": true,
     "interface-sort-keys": true
