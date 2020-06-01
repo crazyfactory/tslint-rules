@@ -45,9 +45,8 @@ Initially you should:
   - Rule options: 
     - `case: "uppercase" | "lowercase"`. Default is `lowercase`
     - `allowedLengths: number[]`. Default is `[4, 7]`
-### `interface-sort-keys`
-  - Same as [object-literal-sort-keys](https://palantir.github.io/tslint/rules/object-literal-sort-keys/) but applied to
-  interface keys
+### <del>`interface-sort-keys`</del>
+  - Please use [member-ordering](https://palantir.github.io/tslint/rules/member-ordering/) instead!
 ### `jsx-space-before-trailing-slash`
   - Requires or bans space before `/>` part of jsx.
   - Rule options:
